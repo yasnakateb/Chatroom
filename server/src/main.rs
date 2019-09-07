@@ -29,4 +29,15 @@ fn main()
     // Instantiate channel and assign it to a string type
     // We are going to be sending a bunch of strings through channel
     let (tx, rx) = mpsc::channel::<String>();
+     
+    loop 
+    {   
+        // Destruct result from listener.accept()  
+        // listener.accept() allows us to accept connections to this server
+        if let Ok((mut socket, address)) = listener.accept()
+            {
+            }
+    }    
+                
 }
+
