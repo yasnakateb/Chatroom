@@ -40,7 +40,8 @@ fn main()
             {
                 println!("Client {}: CONNECTED", address);
                 // Clone sender
-                // Socket tries to clone it and then push it to clients vector 
+                // The socket tries to clone it and then push it to clients vector 
+                // We're cloning the socket to push it into our thread 
                 let sender = sender.clone();
                 clients.push(socket.try_clone().expect("Failed to clone client"));
             }
