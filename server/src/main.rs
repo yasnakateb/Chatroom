@@ -65,7 +65,18 @@ fn main()
                                 println!("{}: {:?}", address, message);
                                 // Sent out message through our sender to our receiver
                                 sender.send(message).expect("Failed to send message to receiver");
-                            },    
+                            },
+                            /* If the type of error is equal to an error that would block our non-blocking
+                             * we just send back a unit type 
+                             */ 
+                            Err(ref err) if err.kind() == ErrorKind::WouldBlock => (),
+                            // If we get an error we don't care about what's inside of it 
+                            // We just close the connection and then we just break out of this loop
+                            Err(_) => 
+                            {
+                                println!("Closing connection with: {}", address);
+                                break;
+                            }    
 
                         }
                     }    
