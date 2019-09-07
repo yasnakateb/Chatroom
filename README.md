@@ -18,12 +18,11 @@ Use rustup to install the Rust compiler and the Rust package manager.
 
 
 1. Clone the repository.
-2. Open your Terminal
-3. Change the directory to server.
-4. Run  <code>$ cargo run</code> 
-5. Change the directory to client.
-6. Run  <code>$ cargo run</code> 
-7. Write your messages !
+2. Change the directory to server.
+3. Run  <code>$ cargo run</code> 
+4. Change the directory to client.
+5. Run  <code>$ cargo run</code> 
+6. Write your messages !
 
 
 📌📌📌  If you try to send a message that's longer than 32 bytes it doesn't actually break anything. It just cuts off the message at 32 bytes.
