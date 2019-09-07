@@ -87,6 +87,27 @@ fn fn main()
         }
         // Have our thread sleep for a hundred milliseconds
         thread::sleep(Duration::from_millis(100));
-    }    
+    }); 
+    // This will show up when the user opens the client
+    println!("*********************************");
+    println!("************ WELCOME ************");
+    println!("*********************************");
+
+    loop {
+        // Create a new mutable string
+        let mut buffer = String::new();
+        // Read into that string from our standard input
+        io::stdin().read_line(&mut buffer).expect("reading from stdin failed");
+        // Trim our buffer 
+        // Use the to string method to put it into a message variable 
+        let message = buffer.trim().to_string();
+        // If message is equivalent to : exit we'll break out of our loop 
+        if message == "exit" || sender.send(message).is_err() {break}
+    }
+    // Print out GOOD BYE
+    println!("*********************************");
+    println!("*********** GOOD BYE ************");
+    println!("*********************************");
+        
 
 }
