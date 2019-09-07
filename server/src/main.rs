@@ -61,6 +61,10 @@ fn main()
                                 let message = buff.into_iter().take_while(|&x| x != 0).collect::<Vec<_>>();
                                 // Convert slice of strings into an actual string 
                                 let message = String::from_utf8(message).expect("Invalid utf8 message");
+                                // Print out the address sent the message
+                                println!("{}: {:?}", address, message);
+                                // Sent out message through our sender to our receiver
+                                sender.send(message).expect("Failed to send message to receiver");
                             },    
 
                         }
