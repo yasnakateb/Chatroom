@@ -44,6 +44,12 @@ fn main()
                 // We're cloning the socket to push it into our thread 
                 let sender = sender.clone();
                 clients.push(socket.try_clone().expect("Failed to clone client"));
+                
+                // Spawn our thread here 
+                thread::spawn(move || loop 
+                    {
+                    }    
+        
             }
 
     }    
