@@ -96,7 +96,8 @@ fn main()
     println!("************ WELCOME ************");
     println!("*********************************");
 
-    loop {
+    loop 
+    {
         // Create a new mutable string
         let mut buffer = String::new();
         // Read into that string from our standard input
