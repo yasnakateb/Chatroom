@@ -1,5 +1,5 @@
 [package]
-name = "client"
+name = "chatroom_client"
 version = "0.1.0"
 authors = ["Yasna Kateb <yasnakatebzadeh@gmail.com>"]
 edition = "2018"
