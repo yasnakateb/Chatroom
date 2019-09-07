@@ -9,12 +9,14 @@ use std::net::TcpStream;
 use std::sync::mpsc::{self, TryRecvError};
 use std::thread;
 use std::time::Duration;
+use std::str;
 
 // Localhost with a port in it
 const LOCAL_HOST: &str = "127.0.0.1:8080";
 
 // The buffer size of messages
 const MESSAGE_SIZE: usize = 32;
+
 
 fn main() 
 {
@@ -45,7 +47,8 @@ fn main()
                 // Collect all of them inside of our vector
                 // All the ones that are equal to 0 are going to just discard
                 let message = buffer.into_iter().take_while(|&x| x != 0).collect::<Vec<_>>();
-                println!("Message recv{:?}",  message);
+                let message = str::from_utf8(&message).unwrap();
+                println!("Message :{:?}", message);
             },
             /* 
              * If the type of error is equal to an error that would block our non-blocking,
@@ -72,7 +75,7 @@ fn main()
                 // Write all of our buffers into our client
                 client.write_all(&buffer).expect("Writing to socket failed");
                 // Print out the message
-                println!("Message sent {:?}", message);
+                
             },
             /* 
              * Check if our try receive error is empty and 
@@ -97,7 +100,7 @@ fn main()
         // Create a new mutable string
         let mut buffer = String::new();
         // Read into that string from our standard input
-        io::stdin().read_line(&mut buffer).expect("reading from stdin failed");
+        io::stdin().read_line(&mut buffer).expect("Reading from stdin failed");
         // Trim our buffer 
         // Use the to string method to put it into a message variable 
         let message = buffer.trim().to_string();
