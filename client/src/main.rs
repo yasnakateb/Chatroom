@@ -23,5 +23,8 @@ fn fn main()
     // We want our client to be non-blocking
     // Set the flag non-blocking to true
     client.set_nonblocking(true).expect("Failed to initiate non-blocking"); 
-    
+    // Instantiate channel and assign it to a string type
+    // We are going to be sending a bunch of strings through channel
+    let (sender, receiver) = mpsc::channel::<String>();
+
 }
