@@ -17,7 +17,11 @@ const MESSAGE_SIZE: usize = 32;
 
 fn fn main() 
 {
-	// Create a mutable client which is a TCP stream 
-	// Connect it to our local here ==> IP with the port 
-	let mut client = TcpStream::connect(LOCAL_HOST).expect("Failed to connect");	
+    // Create a mutable client which is a TCP stream 
+    // Connect it to our local here ==> IP with the port 
+    let mut client = TcpStream::connect(LOCAL_HOST).expect("Failed to connect");
+    // We want our client to be non-blocking
+    // Set the flag non-blocking to true
+    client.set_nonblocking(true).expect("Failed to initiate non-blocking"); 
+    
 }
