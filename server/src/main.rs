@@ -94,15 +94,26 @@ fn main()
                          * Sleep function will allow our loop to sort of rest while it's not receiving messages.
                          */   
                         sleep();
-                    });       
-   
+                    }); 
+            }      
+        if let Ok(message) = receiver.try_recv() 
+            {
+                clients = clients.into_iter().filter_map(|mut client| 
+                {
+                    // Set the buffer equal to message that clone into bytes 
+                    // Convert our messages into bytes
+                    let mut buffer = message.clone().into_bytes();
+                    // Resize buffer based on our message size 
+                    buffer.resize(MSG_SIZE, 0);
+                    // Take our client 
+                    // Write all of the entire buffer 
+                    // Map it into our client
+                    // Send it back 
+                    // Collect it all into a vector
+                    client.write_all(&buff).map(|_| client).ok()
+                }).collect::<Vec<_>>();
             }
-                        }
-                    }    
-        
-            }
-
-    }    
-                
-}
-
+            sleep();
+    }
+    
+}            
