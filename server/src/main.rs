@@ -38,7 +38,7 @@ fn main()
         // address: socket address 
         if let Ok((mut socket, address)) = listener.accept()
             {
-    
+                println!("Client {}: CONNECTED", address);
             }
     }    
                 
