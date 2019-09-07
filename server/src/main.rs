@@ -34,8 +34,11 @@ fn main()
     {   
         // Destruct result from listener.accept()  
         // listener.accept() allows us to accept connections to this server
+        // socket: TCP stream 
+        // address: socket address 
         if let Ok((mut socket, address)) = listener.accept()
             {
+    
             }
     }    
                 
