@@ -22,4 +22,7 @@ fn main()
     let listener = TcpListener::bind(LOCAL_HOST).expect("Could not bind socket");
     // Push listener in non-blocking mode
     listener.set_nonblocking(true).expect("Failed to initialize non-blocking");
+
+    // Create mutable vector for clients
+    let mut clients = vec![];
 }
