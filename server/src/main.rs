@@ -45,9 +45,11 @@ fn main()
                 let sender = sender.clone();
                 clients.push(socket.try_clone().expect("Failed to clone client"));
                 
-                // Spawn our thread here 
+                // Spawn our thread here with a move closure inside of it 
                 thread::spawn(move || loop 
                     {
+                        // Create a mutable buffer 
+                        let mut buffer = vec![0; MESSGE_SIZE];
                     }    
         
             }
