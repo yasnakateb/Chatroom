@@ -16,4 +16,8 @@ const LOCAL_HOST: &str = "127.0.0.1:8080";
 const MESSAGE_SIZE: usize = 32;
 
 
-
+fn main()
+{
+    // Instantiate server 
+    let listener = TcpListener::bind(LOCAL_HOST).expect("Could not bind socket");
+}
