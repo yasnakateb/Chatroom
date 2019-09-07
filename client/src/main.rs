@@ -14,3 +14,10 @@ const LOCAL_HOST: &str = "127.0.0.1:8080";
 
 // The buffer size of messages
 const MESSAGE_SIZE: usize = 32;
+
+fn fn main() 
+{
+	// Create a mutable client which is a TCP stream 
+	// Connect it to our local here ==> IP with the port 
+	let mut client = TcpStream::connect(LOCAL_HOST).expect("Failed to connect");	
+}
