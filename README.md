@@ -1,4 +1,4 @@
-# Chat App 
+# Chat Application
 🏁🔮  The goal of this project is writing a simple  Chat Application (server-client) in Rust.
 ## Dependencies
 
