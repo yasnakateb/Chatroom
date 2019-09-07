@@ -50,6 +50,10 @@ fn main()
                     {
                         // Create a mutable buffer 
                         let mut buffer = vec![0; MESSGE_SIZE];
+                        // Read our message into our buffer 
+                        match socket.read_exact(&mut buffuer) 
+                        {
+                        }
                     }    
         
             }
