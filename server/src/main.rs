@@ -16,6 +16,16 @@ const LOCAL_HOST: &str = "127.0.0.1:8080";
 const MESSAGE_SIZE: usize = 32;
 
 
+/*
+ * Sleep function will allow our thread to sleep for a moment.
+ * Our thread will sleep for a hundred milliseconds between each of the loops.
+ */    
+fn sleep() 
+{
+    thread::sleep(::std::time::Duration::from_millis(100));
+} 
+
+
 fn main()
 {
     // Instantiate server 
@@ -66,8 +76,9 @@ fn main()
                                 // Sent out message through our sender to our receiver
                                 sender.send(message).expect("Failed to send message to receiver");
                             },
-                            /* If the type of error is equal to an error that would block our non-blocking
-                             * we just send back a unit type 
+                            /* 
+                             * If the type of error is equal to an error that would block our non-blocking,
+                             * we just send back a unit type. 
                              */ 
                             Err(ref err) if err.kind() == ErrorKind::WouldBlock => (),
                             // If we get an error we don't care about what's inside of it 
@@ -76,8 +87,16 @@ fn main()
                             {
                                 println!("Closing connection with: {}", address);
                                 break;
-                            }    
-
+                            } 
+                        }
+                        /*
+                         * Our thread would be constantly looping around and it would be really awkward. 
+                         * Sleep function will allow our loop to sort of rest while it's not receiving messages.
+                         */   
+                        sleep();
+                    });       
+   
+            }
                         }
                     }    
         
