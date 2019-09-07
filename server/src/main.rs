@@ -53,6 +53,16 @@ fn main()
                         // Read our message into our buffer 
                         match socket.read_exact(&mut buffuer) 
                         {
+                            Ok(_) => {
+                                // Take the message that we're receiving 
+                                // Convert it into an iterator 
+                                // Take all the characters that are not whitespaces
+                                // Collect them inside of out vector 
+                                let message = buff.into_iter().take_while(|&x| x != 0).collect::<Vec<_>>();
+                                // Convert slice of strings into an actual string 
+                                let message = String::from_utf8(message).expect("Invalid utf8 message");
+                            },    
+
                         }
                     }    
         
