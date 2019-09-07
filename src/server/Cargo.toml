@@ -1,5 +1,5 @@
 [package]
-name = "server"
+name = "chatroom_server"
 version = "0.1.0"
 authors = ["Yasna Kateb <yasnakatebzadeh@gmail.com>"]
 edition = "2018"
