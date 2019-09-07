@@ -21,5 +21,5 @@ fn main()
     // Instantiate server 
     let listener = TcpListener::bind(LOCAL_HOST).expect("Could not bind socket");
     // Push listener in non-blocking mode
-    listener.set_nonblocking(true).expect("failed to initialize non-blocking");
+    listener.set_nonblocking(true).expect("Failed to initialize non-blocking");
 }
