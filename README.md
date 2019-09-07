@@ -4,7 +4,7 @@
 
 
 ### macOS
-This project needs Rust compiler (rustc) and the Rust package manager (cargo).
+This project needs the Rust compiler (rustc) and the Rust package manager (cargo).
 
 ### Building on macOS
 #### Rust Installation :
