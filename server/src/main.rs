@@ -59,16 +59,16 @@ fn main()
                 thread::spawn(move || loop 
                     {
                         // Create a mutable buffer 
-                        let mut buffer = vec![0; MESSGE_SIZE];
+                        let mut buffer = vec![0; MESSAGE_SIZE];
                         // Read our message into our buffer 
-                        match socket.read_exact(&mut buffuer) 
+                        match socket.read_exact(&mut buffer) 
                         {
                             Ok(_) => {
                                 // Take the message that we're receiving 
                                 // Convert it into an iterator 
                                 // Take all the characters that are not whitespaces
                                 // Collect them inside of out vector 
-                                let message = buff.into_iter().take_while(|&x| x != 0).collect::<Vec<_>>();
+                                let message = buffer.into_iter().take_while(|&x| x != 0).collect::<Vec<_>>();
                                 // Convert slice of strings into an actual string 
                                 let message = String::from_utf8(message).expect("Invalid utf8 message");
                                 // Print out the address sent the message
@@ -104,13 +104,13 @@ fn main()
                     // Convert our messages into bytes
                     let mut buffer = message.clone().into_bytes();
                     // Resize buffer based on our message size 
-                    buffer.resize(MSG_SIZE, 0);
+                    buffer.resize(MESSAGE_SIZE, 0);
                     // Take our client 
                     // Write all of the entire buffer 
                     // Map it into our client
                     // Send it back 
                     // Collect it all into a vector
-                    client.write_all(&buff).map(|_| client).ok()
+                    client.write_all(&buffer).map(|_| client).ok()
                 }).collect::<Vec<_>>();
             }
             sleep();
