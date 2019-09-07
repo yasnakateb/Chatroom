@@ -72,7 +72,7 @@ fn main()
                 // Write all of our buffers into our client
                 client.write_all(&buffer).expect("Writing to socket failed");
                 // Print out the message
-                println!("Message sent {:?}", msg);
+                println!("Message sent {:?}", message);
             },
             /* 
              * Check if our try receive error is empty and 
