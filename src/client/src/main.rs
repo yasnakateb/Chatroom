@@ -31,7 +31,6 @@ fn main()
     let (sender, receiver) = mpsc::channel::<String>();
 
     // Spawn a thread and create a move closure inside of it with a loop
-
     thread::spawn(move || loop 
     {
         // Create a mutable buffer with a vector with zeros inside of it 
