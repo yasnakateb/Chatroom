@@ -1,5 +1,5 @@
 # Chatroom
-🏁🔮  The goal of this project is writing a simple  Chatroom (server-client) in Rust.
+🏁🔮  The goal of this project is writing a simple  chatroom (server-client) in Rust.
 ## Dependencies
 
 
